@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom";
-import "./singlePost.css";
+import {FiEdit2} from "react-icons/fi"
+import {MdDelete} from "react-icons/md"
+
+import "./singlepost.css";
 
 export default function SinglePost() {
   return (
-    <div className="singlePost">
+    <div className="singlepost">
       <div className="singlePostWrapper">
         <img
           className="singlePostImg"
@@ -13,17 +15,16 @@ export default function SinglePost() {
         <h1 className="singlePostTitle">
           Lorem ipsum dolor
           <div className="singlePostEdit">
-            <i className="singlePostIcon far fa-edit"></i>
-            <i className="singlePostIcon far fa-trash-alt"></i>
+            <FiEdit2 className="singlePostIcon"/>
+            <MdDelete className="singlePostIcon"/>
+
           </div>
         </h1>
         <div className="singlePostInfo">
           <span>
             Author:
             <b className="singlePostAuthor">
-              <Link className="link" to="/posts?username=Safak">
                 Safak
-              </Link>
             </b>
           </span>
           <span>1 day ago</span>
