@@ -43,7 +43,12 @@
     font-size: 18px;
     font-weight: 300;
     cursor: pointer;
+    text-decoration: none;
 
+}
+.toplist a{
+    text-decoration: none;
+    color: inherit;
 }
 .topsearchicon{
     font-size: 18px;

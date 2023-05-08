@@ -1,41 +1,37 @@
-// import Home from "./pages/Home/Home";
+import {BrowserRouter,Routes,Route} from "react-router-dom";
+import Home from "./pages/Home/Home";
 import Single from "./pages/Single/Single";
-
-import Topbar from "./components/Topbar/Topbar";
+import Layout from "./components/Layout/Layout";
 import Write from "./pages/Write/Write";
 import Settings from "./pages/settings/Settings";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
-// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "./App.css"
 
 function App() {
   return (
     <div>
-      {/* <Router> */}
-      <Topbar/>
-      {/* <Switch>
-      <Route exact path="/"> */}
-      {/* <Home /> */}
+      <BrowserRouter>
+      <Routes>
+        <Route element= {<Layout/>} >
+      <Route path="/" element={<Home />} ></Route>
+      <Route path="/register" element={<Register />} ></Route>
+      <Route path="/login" element={<Login />} ></Route>
+      <Route path="/write" element={<Write />} ></Route>
+      <Route path="/settings" element={<Settings />} ></Route>
+      {/* <Route path="/post" element={</>} ></Route> */}
 
-      <Register/>
+      
 
-      {/* </Route> */}
-      {/* <Route path="/posts">
-        <Homepage />
+
       </Route>
-      <Route path="/register">
-        {currentUser ? <Homepage /> : <Register />}
-      </Route>
-      <Route path="/login">{currentUser ? <Homepage /> : <Login />}</Route>
-      <Route path="/post/:id">
-         <Single />
-      </Route>
-      <Route path="/write">{currentUser ? <Write /> : <Login />}</Route>
-      <Route path="/settings"> */}
-      {/* {currentUser ? <Settings /> : <Login />}
-      </Route> */}
-      {/* </Switch>
-  </Router> */}
+      </Routes>
+      </BrowserRouter>
+      
+   
+
+    
+     
     </div>
   );
 }
