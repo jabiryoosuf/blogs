@@ -18,7 +18,7 @@ const Topbar = () => {
       </div>
       <div className="topcenter">
         <ul className="toplist">
-          <HashLink to="#home">
+          <HashLink to="/">
             <li className="toplistitems"> HOME</li>
           </HashLink>
           <Link to="/about">
@@ -35,14 +35,11 @@ const Topbar = () => {
       </div>
       <div className="topright">
         {user ? (
-                
-
-
         <img className="topimg" src={profile} alt="profile" />
         ):(
           <ul className="toplist">
           <li className="toplistitems">
-             <Link className="link" to="/login">LOGIN
+             <Link to="/login" className="link">LOGIN
           </Link>
           </li>
           <li className="toplistitems">

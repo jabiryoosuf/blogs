@@ -6,13 +6,14 @@ import { LoginApi } from '../../Store/AuthSlice'
 
 const Login = () => {
   const [login,setLogin]=useState({})
+  console.log(login);
   const dispatch=useDispatch()
   const navigate=useNavigate()
 
   const handleLoginSubmit=(e)=>{
     e.preventDefault()
-    dispatch(LoginApi({login,navigate}))
-
+    dispatch(LoginApi(login,navigate))
+  }
   return (
     <div className='login'>
         <form onSubmit={handleLoginSubmit}  className="loginform">
@@ -30,6 +31,6 @@ const Login = () => {
     </div>
   )
 }
-}
+
 
 export default Login
