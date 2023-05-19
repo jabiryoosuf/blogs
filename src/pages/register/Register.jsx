@@ -14,7 +14,7 @@ const Register = () => {
 
   const handleSignuSubmit=(e)=>{
     e.preventDefault()
-    dispatch(SignupApi(register,navigate))
+    dispatch(SignupApi({register,navigate}))
   }
 
 
@@ -40,7 +40,7 @@ const Register = () => {
           type="password"
           placeholder="enter your password ..."
         />
-        <button className="registerbutton">Register</button>
+        <button type="submit" className="registerbutton">Register</button>
       </form>
       <button className="registerregisterbutton">
         <Link  className="link" to="/login">Login</Link></button>

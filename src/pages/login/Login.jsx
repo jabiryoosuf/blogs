@@ -12,14 +12,14 @@ const Login = () => {
 
   const handleLoginSubmit=(e)=>{
     e.preventDefault()
-    dispatch(LoginApi(login,navigate))
+    dispatch(LoginApi({login,navigate}))
   }
   return (
     <div className='login'>
         <form onSubmit={handleLoginSubmit}  className="loginform">
             <span className="logintitle">login</span>
-            <label htmlFor="">Email</label>
-            <input onChange={(e) => setLogin({...login,email:e.target.value })} className='logininput' type="text" placeholder='enter your email ...' />
+            <label htmlFor="">Username</label>
+            <input onChange={(e) => setLogin({...login,username:e.target.value })} className='logininput' type="text" placeholder='enter your username ...' />
             <label htmlFor="">Password</label>
             <input onChange={(e) => setLogin({...login,password:e.target.value })} className='logininput' type="password" placeholder='enter your password ...' />
             <button className="loginbutton">Login</button>

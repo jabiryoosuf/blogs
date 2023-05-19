@@ -3,7 +3,7 @@ import { axiosAPI } from "./Axios-method";
 
 
 
-export const SignupApi = createAsyncThunk ("auth/SignupApi", async (register, navigate)=>{
+export const SignupApi = createAsyncThunk ("auth/SignupApi", async ({register, navigate})=>{
   console.log(register);
     const result = await axiosAPI.post("/user/signup",register)
     console.log(result);
@@ -13,11 +13,15 @@ export const SignupApi = createAsyncThunk ("auth/SignupApi", async (register, na
 )
 
 
-export const LoginApi = createAsyncThunk ("auth/LoginApi", async (login, navigate)=>{
+export const LoginApi = createAsyncThunk ("auth/LoginApi", async ({login, navigate})=>{
   console.log(login);
     const result = await axiosAPI.post("/user/login",login)
     console.log(result);
-    navigate("/");
+    localStorage.setItem("token",result?.data?.token)
+    if(result?.data?.token){
+      navigate("/");
+    }
+  
 
 }
 )

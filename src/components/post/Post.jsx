@@ -1,12 +1,33 @@
-import blog from "../../assets/Blogs.jpg"
+// import blog from "../../assets/Blogs.jpg"
+import { useDispatch, useSelector } from 'react-redux';
 import'./post.css'
-function Post() {
+import { useEffect } from 'react';
+import { allBlogApi } from '../../Store/BlogSlice';
+import { map } from "lodash";
+import moment from 'moment/moment';
+function Post({img}) {
+
+  const dispatch = useDispatch();
+
+  const { allblogs } = useSelector((state) => state.blogs);
+  console.log(allblogs);
+
+  
+
+    useEffect(() => {
+      dispatch(allBlogApi());
+  },[dispatch]);
+
+
   return (
-    <div>
+    <div className='postcontainer'>
+      {/* {allblogs.map((blog)=>( */}
+     {map(allblogs,(blog)=>
+    
       <div className="post">
       <img
         className="postimg"
-        src={blog}
+        src={img}
         alt=""
       />
       <div className="postinfo">
@@ -19,18 +40,16 @@ function Post() {
           </span>
         </div>
         <span className="posttitle">
-            Lorem ipsum dolor sit amet
+            {blog.title}
         </span>
         <hr />
-        <span className="postdate">1 hour ago</span>
+        <span className="postdate">{moment(blog.createdAt).format('DD/MM/YYYY')}</span>
       </div>
       <p className="postdesc">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
-        officia architecto deserunt deleniti? Labore ipsum aspernatur magnam
-        fugiat, reprehenderit praesentium blanditiis quos cupiditate ratione
-        atque, exercitationem quibusdam, reiciendis odio laboriosam?
+        {blog.content}
       </p>
     </div>
+      )}
     </div>
   )
 }

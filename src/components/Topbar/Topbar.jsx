@@ -4,11 +4,19 @@ import { FaWhatsappSquare } from "react-icons/fa";
 import { GoSearch } from "react-icons/go";
 import profile from "../../assets/profile.jpeg";
 import "./topbar.css";
-import { Link } from "react-router-dom/dist";
+import { Link, useNavigate } from "react-router-dom/dist";
 import { HashLink } from "react-router-hash-link";
 
 const Topbar = () => {
-  const user=false
+  const user=localStorage.getItem("token");
+const navigate = useNavigate();
+
+
+
+  const hanndlelogout=()=>{
+   localStorage.removeItem("token");
+   navigate("/")
+  }
   return (
     <div className="top">
       <div className="topleft">
@@ -27,10 +35,14 @@ const Topbar = () => {
           <Link to="/contact">
             <li className="toplistitems">CONTACT</li>
           </Link>
-          <Link to="/write">
+          <Link to={user?"/write":"/login"}>
             <li className="toplistitems">WRITE</li>
           </Link>
-          <li className="toplistitems">LOGOUT</li>
+          
+          {user &&
+          <li onClick={hanndlelogout} className="toplistitems">LOGOUT</li>
+          
+          }
         </ul>
       </div>
       <div className="topright">
